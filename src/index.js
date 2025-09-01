@@ -34,14 +34,14 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Test route
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Server is running!");
+// });
 
 
 
 // Get all users
-app.get("/users", async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM users");
     res.json(result.rows);
